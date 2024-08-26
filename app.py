@@ -74,6 +74,11 @@ def preprocess_image(image):
         logging.error(f"Error in image preprocessing: {e}")
         return None
 
+
+@app.route('/', methods=['GET'])
+def test():
+    return jsonify({'success': 'OK'}), 200
+
 @app.route('/predict', methods=['POST'])
 def predict():
     if 'image' not in request.files:
